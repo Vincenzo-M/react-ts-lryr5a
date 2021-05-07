@@ -1,5 +1,5 @@
 import React from 'react';
-import ParentSibling from '../ParentSibling';
+import Child from '../Child';
 
 
 
@@ -14,17 +14,38 @@ interface Props {
 }
 
 
+let c = 0;
+const Parent = ():JSX.Element => { 
 
-const Parent = ():JSX.Element => {
+  const [counter, setCounter] = useState < null | number>(0);
+
+    setCounter (counter+1);
+    console.log("I'm parent counter", counter);
+  
+
+    const handlerC = ():void => {
+    c = c+1;
+  
+    console.log("I'm parent c", c);
+  }
+
+
+  
+
   console.log("i'm Parent");
   
-  const fn = (): void => {console.log("")};
+  const fn = (text:string): void => {console.log("gsgdsg")};
 
-  return <div>
-  i'm Parent
+  return {
+    <>
 
+       <div onClick={handlerC}>
+       i'm Parent e child C 
+       </div>
+       
+    <>
 
-  </div>
+  }
 
 
 }
